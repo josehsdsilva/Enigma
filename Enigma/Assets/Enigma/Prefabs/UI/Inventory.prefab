@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onInsideZone: {fileID: 11400000, guid: b111136a2efbe144a928610896444749, type: 2}
+  onItemPicked: {fileID: 11400000, guid: 57dd60cbc7ce2a94e804da223a2375c8, type: 2}
   bookPrefab: {fileID: 2177967099857463444, guid: 8c8f90e683150ed45b96fc31521b7c7d, type: 3}
   key1: {fileID: 8288061011778886630, guid: 6eab6738acd78ba45a3bc87f5e8845fe, type: 3}
   key2: {fileID: 2943741888055364004, guid: 0f929756fc49b3f4dbb9c295faafbc23, type: 3}

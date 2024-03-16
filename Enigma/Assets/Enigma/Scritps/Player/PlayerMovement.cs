@@ -5,10 +5,27 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float speed = 5;
+    bool canMove;
 
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+    }
+
+    private void GameManagerOnGameStateChanged(GameState newState)
+    {
+        canMove = newState == GameState.Play;
+    }
 
     void Update()
     {
+        if (!canMove) return;
+
         Movement();
     }
 
@@ -18,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 speedVector = (Vector2.up + Vector2.right).normalized;
             transform.Translate(speed * Time.deltaTime * speedVector);
-            Debug.Log((speed * speedVector).magnitude);
+            //Debug.Log((speed * speedVector).magnitude);
         }
 
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -54,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
-            Debug.Log((speed * Time.deltaTime * Vector2.down).magnitude);
+            //Debug.Log((speed * Time.deltaTime * Vector2.down).magnitude);
         }
     }
 }
