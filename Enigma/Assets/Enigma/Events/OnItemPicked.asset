@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c080c526945ac5a4692ccd7d1614e9a5, type: 3}
-  m_Name: OnInsideZone
+  m_Script: {fileID: 11500000, guid: 7d8bb7faa9fbd7d449be54b4f99f5467, type: 3}
+  m_Name: OnItemPicked
   m_EditorClassIdentifier: 
   Response:
     m_PersistentCalls:

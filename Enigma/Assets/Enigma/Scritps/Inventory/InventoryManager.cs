@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] GameEvent onInsideZone;
+    [SerializeField] GameEvent_ItemType onInsideZone;
+    [SerializeField] GameEvent_GameObject onItemPicked;
     List<InventoryItemSlot> items;
     ItemType interactionZone;
 
@@ -17,7 +18,8 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         items = transform.GetComponentsInChildren<InventoryItemSlot>().ToList();
-        onInsideZone.Response.AddListener(UpdateInteractionZone);
+        onInsideZone.Event.AddListener(UpdateInteractionZone);
+        onItemPicked.Event.AddListener(ItemPicked);
     }
 
     private void Update()
@@ -49,9 +51,15 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    public void UpdateInteractionZone(ItemType itemType)
+    void UpdateInteractionZone(ItemType itemType)
     {
         interactionZone = itemType;
+    }
+
+    void ItemPicked(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
+        AddItem(gameObject);
     }
 
     public void AddItem(GameObject go)

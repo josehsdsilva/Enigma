@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(GameEvent))]
-public class GameEventEditor : Editor
+[CustomEditor(typeof(GameEvent_ItemType))]
+public class GameEvent_ItemTypeEditor : Editor
 {
     private ItemType selectedItemType;
 
@@ -13,7 +13,7 @@ public class GameEventEditor : Editor
         base.OnInspectorGUI();
 
         // Cast the target to the GameEvent type
-        GameEvent gameEvent = (GameEvent)target;
+        GameEvent_ItemType gameEvent = (GameEvent_ItemType)target;
 
         // Display enum dropdown for selecting item type
         selectedItemType = (ItemType)EditorGUILayout.EnumPopup("Item Type", selectedItemType);
@@ -22,7 +22,7 @@ public class GameEventEditor : Editor
         if (GUILayout.Button("Trigger Event"))
         {
             // Invoke the Response with the selected item type as a parameter
-            gameEvent.Response.Invoke(selectedItemType);
+            gameEvent.Event.Invoke(selectedItemType);
         }
     }
 }
