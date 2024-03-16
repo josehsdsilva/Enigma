@@ -123,6 +123,27 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &493010724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6058858672133579522, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+  m_PrefabInstance: {fileID: 7501785324898822067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1110917964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981071153938431036, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+  m_PrefabInstance: {fileID: 7501785324898822067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1243901573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5266533826659550498, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+  m_PrefabInstance: {fileID: 7501785324898822067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1624177697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -845,9 +866,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1965280157}
     m_Modifications:
+    - target: {fileID: 710948258993683791, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752047579202848211, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: m_Name
+      value: Open Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981071153938431036, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816963583563139738, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: cover
+      value: 
+      objectReference: {fileID: 1243901573}
+    - target: {fileID: 2816963583563139738, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: openBook
+      value: 
+      objectReference: {fileID: 1110917964}
+    - target: {fileID: 2816963583563139738, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: openButton
+      value: 
+      objectReference: {fileID: 493010724}
     - target: {fileID: 4625958730835895006, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
       propertyPath: m_Name
       value: BookUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266533826659550498, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7253338879470027486, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
       propertyPath: m_Pivot.x
