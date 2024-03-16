@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] ItemType itemType;
     [SerializeField] Sprite image;
+    bool picked = false;
 
     public ItemType GetItemType()
     {
@@ -16,6 +17,21 @@ public class Item : MonoBehaviour
     public Sprite GetImage()
     {
         return image;
+    }
+
+    public bool AlreadyPicked()
+    {
+        return picked;
+    }
+
+    public void SetPicked()
+    {
+        picked = true;
+    }
+
+    public virtual void Use()
+    {
+
     }
 }
 

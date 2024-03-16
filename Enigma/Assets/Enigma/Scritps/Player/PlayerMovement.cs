@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool moving;
 
-
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
@@ -48,9 +47,6 @@ public class PlayerMovement : MonoBehaviour
 
         moving = vertical > 0.01f || vertical < -0.01f || horizontal > 0.01f || horizontal < -0.01f;
         animator.SetBool("moving", moving);
-
-        Debug.Log(animator.GetFloat("MoveX"));
-        Debug.Log(animator.GetFloat("MoveY"));
 
         Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
         transform.Translate(speed * Time.deltaTime * direction);

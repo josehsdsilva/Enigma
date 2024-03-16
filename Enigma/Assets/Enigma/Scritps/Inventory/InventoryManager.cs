@@ -58,13 +58,16 @@ public class InventoryManager : MonoBehaviour
 
     void ItemPicked(GameObject gameObject)
     {
-        gameObject.SetActive(false);
+        if(gameObject.GetComponent<Item>().GetItemType() != ItemType.Book)
+        {
+            gameObject.SetActive(false);
+        }
         AddItem(gameObject);
     }
 
     public void AddItem(GameObject go)
     {
-        Debug.Log(nameof(gameObject) + " -> AddItem");
+        //Debug.Log(nameof(gameObject) + " -> AddItem");
         for (int i = 0; i < items.Count; i++)
         {
             if(items[i].IsEmpty())

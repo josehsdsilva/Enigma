@@ -6,7 +6,7 @@ public class ItemCollider : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
+        //Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.GetComponent<PlayerInteraction>().SetCloseToObject(gameObject);
@@ -15,7 +15,7 @@ public class ItemCollider : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
+        //Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.GetComponent<PlayerInteraction>().SetCloseToObject(null);
