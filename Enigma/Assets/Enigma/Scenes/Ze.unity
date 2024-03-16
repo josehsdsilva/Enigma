@@ -666,26 +666,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eab6738acd78ba45a3bc87f5e8845fe, type: 3}
---- !u!1 &2177967100133016534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6009686765052228768, guid: 8c949fd579db15d43968983eeb951044, type: 3}
-  m_PrefabInstance: {fileID: 5519623908494578127}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4639068638868092448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2177967100133016534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a815d2e418bcc6f48a10d9fc1cb9d78f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 1
-  image: {fileID: 21300000, guid: 9dbb31d1c4abbfe4883453b5a31e6882, type: 3}
-  onBookOpen: {fileID: 11400000, guid: fc0b008473fe45b41989c85c7acd956b, type: 2}
 --- !u!1001 &5441516502485712754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,14 +832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookShelf
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1601858002885660602, guid: 8c949fd579db15d43968983eeb951044, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6009686765052228768, guid: 8c949fd579db15d43968983eeb951044, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4639068638868092448}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c949fd579db15d43968983eeb951044, type: 3}
 --- !u!1001 &7501785324898822067
 PrefabInstance:
@@ -872,10 +848,6 @@ PrefabInstance:
     - target: {fileID: 4625958730835895006, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
       propertyPath: m_Name
       value: BookUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625958730835895006, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7253338879470027486, guid: bf77a87882e7e1347abbbdad678ee2c5, type: 3}
       propertyPath: m_Pivot.x

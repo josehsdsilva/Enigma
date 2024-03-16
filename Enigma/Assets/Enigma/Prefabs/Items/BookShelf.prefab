@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3130108835640873262}
   - component: {fileID: 1026225760250163063}
   - component: {fileID: 7188813878618298261}
-  - component: {fileID: 1601858002885660602}
   - component: {fileID: 2865039332361690309}
+  - component: {fileID: 968571880977967664}
   m_Layer: 0
   m_Name: BookShelf
   m_TagString: Untagged
@@ -132,20 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 15}
   m_EdgeRadius: 0
---- !u!114 &1601858002885660602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6009686765052228768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c78183937621840bf128d72cba5c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 1
-  image: {fileID: 21300000, guid: 9dbb31d1c4abbfe4883453b5a31e6882, type: 3}
 --- !u!114 &2865039332361690309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +144,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8079ed97a3c2ab445bda05d45400e22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &968571880977967664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009686765052228768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a815d2e418bcc6f48a10d9fc1cb9d78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 1
+  image: {fileID: 21300000, guid: 9dbb31d1c4abbfe4883453b5a31e6882, type: 3}
+  onBookOpen: {fileID: 11400000, guid: fc0b008473fe45b41989c85c7acd956b, type: 2}
