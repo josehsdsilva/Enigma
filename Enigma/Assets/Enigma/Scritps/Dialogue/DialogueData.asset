@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd4bb9b675928b46b4e65f82581b057, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  talkScript: []
+  talkScript:
+  - name: "M\xE3e"
+    text: Olha o bolinho:)
+  - name: Filha
+    text: Tanto ketchup :D
