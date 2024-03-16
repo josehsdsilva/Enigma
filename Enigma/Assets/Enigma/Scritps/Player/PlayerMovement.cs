@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator animator;
     float speed = 5;
     bool canMove;
+    SpriteRenderer spriteRenderer;
+
+    bool moving;
+
 
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnDestroy()
@@ -31,47 +38,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-        {
-            Vector2 speedVector = (Vector2.up + Vector2.right).normalized;
-            transform.Translate(speed * Time.deltaTime * speedVector);
-            //Debug.Log((speed * speedVector).magnitude);
-        }
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
-        {
-            transform.Translate((Vector2.up + Vector2.left).normalized * speed * Time.deltaTime);
-        }
+        animator.SetFloat("MoveX", horizontal);
+        animator.SetFloat("MoveY", vertical);
 
-        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
-        {
-            transform.Translate((Vector2.down + Vector2.left).normalized * speed * Time.deltaTime);
-        }
+        spriteRenderer.flipX = horizontal < 0;
 
-        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-        {
-            transform.Translate((Vector2.down + Vector2.right).normalized * speed * Time.deltaTime);
-        }
+        moving = vertical > 0.01f || vertical < -0.01f || horizontal > 0.01f || horizontal < -0.01f;
+        animator.SetBool("moving", moving);
 
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
+        Debug.Log(animator.GetFloat("MoveX"));
+        Debug.Log(animator.GetFloat("MoveY"));
 
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
-
-        else if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
-            //Debug.Log((speed * Time.deltaTime * Vector2.down).magnitude);
-        }
+        Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
+        //Debug.Log(direction);
+        transform.Translate(speed * Time.deltaTime * direction);
     }
 }
