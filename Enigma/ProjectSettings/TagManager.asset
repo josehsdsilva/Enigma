@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SmallClockPointer
   - BigClockPointer
+  - Candle
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleResolution : MonoBehaviour
+public class ClockPuzzleResolution : MonoBehaviour
 {
     bool isPuzzleSolved = false;
     float smallPointerAngle, bigPointerAngle;
@@ -21,10 +21,15 @@ public class PuzzleResolution : MonoBehaviour
         }
     }
 
-    public void GetAnglesForPointers(float _smallPointerAngle, float _bigPointerAngle)
+    public void SetAnglesForPointers(float _smallPointerAngle, float _bigPointerAngle)
     {
         smallPointerAngle = _smallPointerAngle;
         bigPointerAngle = _bigPointerAngle;
+    }
+
+    public bool GetPuzzleSolvedCheck()
+    {
+        return isPuzzleSolved;
     }
 
 }
