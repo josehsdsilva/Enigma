@@ -16,10 +16,12 @@ public class InventoryItemSlot : MonoBehaviour
 
     public void AddItem(GameObject go)
     {
-        Debug.Log(nameof(gameObject) + " -> AddItem");
+        //Debug.Log(nameof(gameObject) + " -> AddItem");
         itemGO = go;
         itemScript = itemGO.GetComponent<Item>();
+        itemScript.SetPicked();
         itemImage.sprite = itemScript.GetImage();
+        itemImage.enabled = true;
     }
 
     void RemoveItem()
@@ -27,6 +29,7 @@ public class InventoryItemSlot : MonoBehaviour
         itemGO = null;
         itemScript = null;
         itemImage = null;
+        itemImage.enabled = false;
     }
 
     public bool IsEmpty()
@@ -43,6 +46,7 @@ public class InventoryItemSlot : MonoBehaviour
     public void UseItem()
     {
         Debug.Log(nameof(gameObject) + " -> UseItem");
+        itemScript.Use();
         //RemoveItem();
     }
 }

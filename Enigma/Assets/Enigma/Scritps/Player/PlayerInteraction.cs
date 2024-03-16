@@ -27,6 +27,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void SetCloseToObject(GameObject go)
     {
+        if (go && go.GetComponent<Item>() && go.GetComponent<Item>().AlreadyPicked()) return;
+
         interactableObject = go;
         if(interactableObject)
         {
