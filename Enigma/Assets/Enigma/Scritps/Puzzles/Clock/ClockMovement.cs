@@ -10,12 +10,12 @@ public class ClockMovement : MonoBehaviour
     [SerializeField] GameObject bigClockPointer;
     [SerializeField] GameObject smallClockPointer;
     [SerializeField] Button moveClockPointerRightBtn, moveClockPointerLeftBtn;
-    PuzzleResolution puzzleResolution;
+    ClockPuzzleResolution puzzleResolution;
 
     private void Start()
     {
         currClockPointer = bigClockPointer;
-        puzzleResolution = GetComponent<PuzzleResolution>();
+        puzzleResolution = GetComponent<ClockPuzzleResolution>();
 
         moveClockPointerLeftBtn.onClick.AddListener(() => MoveClockPointers(30));
         moveClockPointerRightBtn.onClick.AddListener(() => MoveClockPointers(-30));
@@ -51,6 +51,6 @@ public class ClockMovement : MonoBehaviour
         currClockPointer.transform.Rotate(new Vector3(0, 0, _degrees), Space.World);
         float smallPointerAngle = smallClockPointer.transform.rotation.eulerAngles.z;
         float bigPointerAngle = bigClockPointer.transform.rotation.eulerAngles.z;
-        puzzleResolution.GetAnglesForPointers(smallPointerAngle, bigPointerAngle);
+        puzzleResolution.SetAnglesForPointers(smallPointerAngle, bigPointerAngle);
     }
 }
