@@ -8,20 +8,24 @@ public class BookController : MonoBehaviour
 {
     [SerializeField] GameEvent onBookOpen;
     [SerializeField] Button closeButton;
+    GameObject panel;
 
     private void Start()
     {
         onBookOpen.Event.AddListener(OpenBook);
         closeButton.onClick.AddListener(CloseBook);
+        panel = transform.GetChild(0).gameObject;
     }
 
     private void CloseBook()
     {
-        gameObject.SetActive(true);
+        //Debug.Log("CloseBook");
+        panel.SetActive(false);
     }
 
     private void OpenBook()
     {
-        gameObject.SetActive(false);
+        //Debug.Log("OpenBook");
+        panel.SetActive(true);
     }
 }

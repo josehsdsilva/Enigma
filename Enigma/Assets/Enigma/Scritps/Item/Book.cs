@@ -8,6 +8,7 @@ public class Book : Item
 
     public override void Use()
     {
+        //Debug.Log("Book -> Use");
         onBookOpen.Event.Invoke();
     }
 }

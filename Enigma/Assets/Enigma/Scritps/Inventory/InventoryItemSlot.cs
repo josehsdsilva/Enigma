@@ -45,7 +45,7 @@ public class InventoryItemSlot : MonoBehaviour
 
     public void UseItem()
     {
-        Debug.Log(nameof(gameObject) + " -> UseItem");
+        //Debug.Log(nameof(gameObject) + " -> UseItem");
         itemScript.Use();
         //RemoveItem();
     }
