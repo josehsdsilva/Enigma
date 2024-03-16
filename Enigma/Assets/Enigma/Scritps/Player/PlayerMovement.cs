@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(animator.GetFloat("MoveY"));
 
         Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
-        //Debug.Log(direction);
         transform.Translate(speed * Time.deltaTime * direction);
     }
 }
