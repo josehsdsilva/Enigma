@@ -10,9 +10,11 @@ public class ClockController : MonoBehaviour
     [SerializeField] Button closeButton;
     GameObject panel;
     ClockPuzzleResolution clockPuzzleResolution;
+    GameObject inventory;
 
     private void Awake()
     {
+        inventory = transform.parent.GetChild(0).gameObject;
         clockPuzzleResolution = GetComponent<ClockPuzzleResolution>();
         panel = transform.GetChild(0).gameObject;
         onClockOpen.Event.AddListener(ShowClock);
@@ -23,6 +25,7 @@ public class ClockController : MonoBehaviour
     private void HideClock()
     {
         panel.SetActive(false);
+        inventory.SetActive(true);
     }
 
     private void ShowClock()
@@ -30,5 +33,6 @@ public class ClockController : MonoBehaviour
         if (clockPuzzleResolution.GetPuzzleSolvedCheck()) return;
 
         panel.SetActive(true);
+        inventory.SetActive(false);
     }
 }
