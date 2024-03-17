@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
-    string mainScene = "Ze";
+    string mainScene = "StartingScene";
 
-    [HideInInspector] public List<string> visited;
+    public List<string> visited;
 
     private void Awake()
     {
@@ -52,16 +52,15 @@ public class SceneController : MonoBehaviour
     {
         if (!visited.Contains("Final"))
         {
-            //LoadScene("")
+            LoadScene("FinalScene");
         }
     }
 
-        public void GetBackToStartScene()
+    public void GetBackToStartScene()
     {
         if(SceneManager.GetActiveScene().name != mainScene)
         {
-            LoadScene("Ze");
-            
+            LoadScene(mainScene);
         }
     }
 
@@ -74,7 +73,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(currentIndex + 1);
     }
 
-    void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
         if(sceneName != mainScene && !visited.Contains(sceneName))

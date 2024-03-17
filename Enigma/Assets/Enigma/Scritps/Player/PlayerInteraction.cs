@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     GameObject interactableObject;
     PickableItem pickableItem;
     InteractableItem interactableItem;
-    bool canMove;
+    bool canMove = true;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameState newState)
     {
-        canMove = newState == GameState.Play;
+        //canMove = newState == GameState.Play;
     }
 
     public void SetCloseToObject(GameObject go)
@@ -31,7 +31,11 @@ public class PlayerInteraction : MonoBehaviour
         if (go && go.GetComponent<PickableItem>() && go.GetComponent<PickableItem>().AlreadyPicked()) return;
 
         interactableObject = go;
-        if(interactableObject && interactableObject.GetComponent<PickableItem>())
+        if(interactableObject == null)
+        {
+            pickableItem = null;
+        }
+        else if(interactableObject && interactableObject.GetComponent<PickableItem>())
         {
             pickableItem = interactableObject.GetComponent<PickableItem>();
         }
