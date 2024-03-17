@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Book : Item
+public class Book : PickableItem
 {
     [SerializeField] GameEvent onBookOpen;
 

@@ -58,7 +58,7 @@ public class InventoryManager : MonoBehaviour
 
     void ItemPicked(GameObject gameObject)
     {
-        if(gameObject.GetComponent<Item>().GetItemType() != ItemType.Book)
+        if(gameObject.GetComponent<PickableItem>().GetItemType() != ItemType.Book)
         {
             gameObject.SetActive(false);
         }
@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
     {
         if(items[id].GetItemType() == ItemType.Book || items[id].GetItemType() != ItemType.None && items[id].GetItemType() == interactionZone)
         {
-            Debug.Log(nameof(gameObject) + " -> UseItem");
+            //Debug.Log(nameof(gameObject) + " -> UseItem");
             items[id].UseItem();
         }
     }

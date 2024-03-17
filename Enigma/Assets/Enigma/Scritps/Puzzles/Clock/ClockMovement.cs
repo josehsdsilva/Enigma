@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ClockMovement : MonoBehaviour
 {
     GameObject currClockPointer;
-    [SerializeField] Camera cam;
+    Camera cam;
     [SerializeField] GameObject bigClockPointer;
     [SerializeField] GameObject smallClockPointer;
     [SerializeField] Button moveClockPointerRightBtn, moveClockPointerLeftBtn;
@@ -14,6 +14,7 @@ public class ClockMovement : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         currClockPointer = bigClockPointer;
         puzzleResolution = GetComponent<ClockPuzzleResolution>();
 
@@ -21,28 +22,40 @@ public class ClockMovement : MonoBehaviour
         moveClockPointerRightBtn.onClick.AddListener(() => MoveClockPointers(-30));
     }
 
-    private void Update()
-    {
-        GetCollision();
-    }
+    //private void Update()
+    //{
+    //    GetCollision();
+    //}
 
-    private void GetCollision()
+    //private void GetCollision()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        Vector3 mousePosition = Input.mousePosition;
+    //        Ray ray = cam.ScreenPointToRay(mousePosition);
+
+    //        RaycastHit2D raycast2D = Physics2D.GetRayIntersection(ray);
+
+    //        if (raycast2D.collider && raycast2D.collider.gameObject.CompareTag("BigClockPointer"))
+    //        {
+    //            currClockPointer = bigClockPointer;
+    //        }
+    //        else if (raycast2D.collider && raycast2D.collider.gameObject.CompareTag("SmallClockPointer")) 
+    //        {
+    //            currClockPointer = smallClockPointer;
+    //        } 
+    //    }
+    //}
+
+    public void SetPointerClicked(bool isBigPointer)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isBigPointer)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(mousePosition);
-
-            RaycastHit2D raycast2D = Physics2D.GetRayIntersection(ray);
-
-            if (raycast2D.collider && raycast2D.collider.gameObject.CompareTag("BigClockPointer"))
-            {
-                currClockPointer = bigClockPointer;
-            }
-            else if (raycast2D.collider && raycast2D.collider.gameObject.CompareTag("SmallClockPointer")) 
-            {
-                currClockPointer = smallClockPointer;
-            } 
+            currClockPointer = bigClockPointer;
+        }
+        else
+        { 
+            currClockPointer = smallClockPointer;
         }
     }
 
