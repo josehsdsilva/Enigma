@@ -5,42 +5,23 @@ using UnityEngine.UI;
 
 public class CandleMovement : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    Camera cam;
     [SerializeField] Button rightArrow, leftArrow, upArrow, downArrow;
     [SerializeField] List<GameObject> candles;
     GameObject currCandle;
 
-    [SerializeField] float maxWidthX, maxHeightY;
+    int minX = 100, minY = 100, maxX = 1800, maxY = 800;
 
     private void Start()
     {
-        rightArrow.onClick.AddListener(() => MoveCandle(Vector2.right));
-        leftArrow.onClick.AddListener(() => MoveCandle(Vector2.left));
-        upArrow.onClick.AddListener(() => MoveCandle(Vector2.up));
-        downArrow.onClick.AddListener(() => MoveCandle(Vector2.down));
+        cam = Camera.main;
+        rightArrow.onClick.AddListener(() => MoveCandle(Vector2.right * 100));
+        leftArrow.onClick.AddListener(() => MoveCandle(Vector2.left * 100));
+        upArrow.onClick.AddListener(() => MoveCandle(Vector2.up * 100));
+        downArrow.onClick.AddListener(() => MoveCandle(Vector2.down * 100));
         currCandle = candles[0];
     }
 
-    private void Update()
-    {
-        GetCollision();
-    }
-    private void GetCollision()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePosition = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(mousePosition);
-
-            RaycastHit2D raycast2D = Physics2D.GetRayIntersection(ray);
-
-            if (raycast2D.collider && raycast2D.collider.gameObject.CompareTag("Candle"))
-            {
-                Debug.Log(currCandle);
-                currCandle = raycast2D.collider.gameObject;
-            }
-        }
-    }
 
     private void MoveCandle(Vector2 _direction)
     {
@@ -58,10 +39,10 @@ public class CandleMovement : MonoBehaviour
             }
         }
 
-        if (currCandle.gameObject.transform.position.x < -maxWidthX ||
-            currCandle.gameObject.transform.position.x > maxWidthX ||
-            currCandle.gameObject.transform.position.y < -maxHeightY ||
-            currCandle.gameObject.transform.position.y > maxHeightY)
+        if (currCandle.gameObject.transform.position.x < -maxX ||
+            currCandle.gameObject.transform.position.x > maxX ||
+            currCandle.gameObject.transform.position.y < -maxY ||
+            currCandle.gameObject.transform.position.y > maxY)
         {
             currCandle.transform.Translate(-_direction);
         }

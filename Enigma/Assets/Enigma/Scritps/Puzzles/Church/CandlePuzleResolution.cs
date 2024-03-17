@@ -16,6 +16,8 @@ public class CandlePuzleResolution : MonoBehaviour
 
     private void Update()
     {
+        if (ispuzzleSolved) return;
+
         PuzzleSolvedCheked();
     }
 
