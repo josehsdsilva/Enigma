@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public enum State
 {
@@ -12,6 +13,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private string targetTag;
     [SerializeField] private string playerTag;
 
+    public AudioClip[] dialogueAudioClips; // Array of audio clips to randomly choose from
     public DialogueData dialogueData;
 
     public float proximityThreshold = 1f; // Threshold distance to consider them too close
@@ -25,18 +27,12 @@ public class DialogueSystem : MonoBehaviour
     DialogueUI dialogueUI;
 
     State state;
-    private float distance;
-    private Transform playerTransform; // Reference to the player's transform
-
 
     void Awake()
     {
-
         typeText = FindObjectOfType<TypeTextAnimation>();
         dialogueUI = FindObjectOfType<DialogueUI>();
-
-        typeText.TypeFinished = OnTypeFinishe;
-
+        typeText.TypeFinished = OnTypeFinished;
     }
 
     void Start()
@@ -48,7 +44,6 @@ public class DialogueSystem : MonoBehaviour
 
     public void Next()
     {
-
         if (currentText == 0)
         {
             dialogueUI.Enable();
@@ -63,12 +58,20 @@ public class DialogueSystem : MonoBehaviour
         typeText.StartTyping();
         state = State.Typing;
 
+        // Choose a random audio clip from the array and play it
+        if (dialogueAudioClips != null && dialogueAudioClips.Length > 0)
+        {
+            AudioClip randomClip = dialogueAudioClips[Random.Range(0, dialogueAudioClips.Length)];
+            AudioSource.PlayClipAtPoint(randomClip, transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("No audio clips assigned for dialogue.");
+        }
     }
 
     void Update()
     {
-        //if (state == State.Disabled) return;
-
         switch (state)
         {
             case State.Disabled:
@@ -81,33 +84,24 @@ public class DialogueSystem : MonoBehaviour
                 Typing();
                 break;
         }
-
     }
 
-    void OnTypeFinishe()
+    void OnTypeFinished()
     {
         state = State.Waiting;
     }
 
     void Disabled()
     {
-        // Iterate through each target
         foreach (GameObject player in players)
         {
             foreach (GameObject target in targets)
             {
-                // Calculate the distance between this GameObject and the target
                 float distance = Vector3.Distance(player.transform.position, target.transform.position);
-                Debug.Log(distance);
 
-                // Check if the distance is less than the proximity threshold
-                if (distance < proximityThreshold)
+                if (distance < proximityThreshold && Input.GetKeyDown(KeyCode.E))
                 {
-                    // Objects are too close, give a warning
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        Next();
-                    }
+                    Next();
                 }
             }
         }
@@ -115,36 +109,28 @@ public class DialogueSystem : MonoBehaviour
 
     void Waiting()
     {
-        
         if (Input.GetKeyDown(KeyCode.E))
         {
-
             if (!finished)
             {
                 Next();
             }
             else
             {
-                Debug.Log("Waiting");
                 dialogueUI.Disable();
                 state = State.Disabled;
                 currentText = 0;
                 finished = false;
             }
-
         }
-        
     }
 
     void Typing()
     {
-        
         if (Input.GetKeyDown(KeyCode.E))
         {
             typeText.Skip();
             state = State.Waiting;
         }
-        
     }
-
 }

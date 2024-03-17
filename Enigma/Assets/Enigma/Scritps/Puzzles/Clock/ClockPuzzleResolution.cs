@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class ClockPuzzleResolution : MonoBehaviour
 {
+    [SerializeField] GameEvent onClockPuzzleCompleted;
+    [SerializeField] GameObject openDoorClock;
+    [SerializeField] GameObject key;
+
     bool isPuzzleSolved = false;
     float smallPointerAngle, bigPointerAngle;
+
+    private void Start()
+    {
+        openDoorClock.SetActive(false);
+        key.SetActive(false);
+    }
 
     private void Update()
     {
@@ -14,9 +24,11 @@ public class ClockPuzzleResolution : MonoBehaviour
 
     private void PuzzleSolvedCheck()
     {
-        if(smallPointerAngle == 90 && bigPointerAngle == 180 && !isPuzzleSolved)
+        if(smallPointerAngle == 180 && bigPointerAngle == 90 && !isPuzzleSolved)
         {
-            Debug.Log("PuzzleSolved");
+            openDoorClock.SetActive(true);
+            key.SetActive(true);
+            onClockPuzzleCompleted.Event.Invoke();
             isPuzzleSolved = true;
         }
     }

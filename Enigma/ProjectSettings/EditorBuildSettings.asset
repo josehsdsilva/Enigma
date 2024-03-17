@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Enigma/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Enigma/Scenes/Ze.unity
+    guid: 93d10f3b3b1fb0741affca88eab454a1
+  - enabled: 1
+    path: Assets/Enigma/Scenes/Gabriel.unity
+    guid: 981824be3d14da842908059eda5be152
+  - enabled: 1
+    path: Assets/Enigma/Scenes/Church.unity
+    guid: a4fab18dbdd68694c97ad832f2cb49a9
+  - enabled: 1
+    path: Assets/Enigma/Scenes/House.unity
+    guid: c558808652ce7654e95992c929328426
   m_configObjects: {}

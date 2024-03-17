@@ -10,7 +10,7 @@ public class ItemUseZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
+        //Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
         if (collision.gameObject.CompareTag("Player"))
         {
             onZoneEnter.Event.Invoke(zoneType);
@@ -19,7 +19,7 @@ public class ItemUseZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
+        //Debug.Log(nameof(gameObject) + " -> OnTriggerEnter2D");
         if (collision.gameObject.CompareTag("Player"))
         {
             onZoneEnter.Event.Invoke(ItemType.None);

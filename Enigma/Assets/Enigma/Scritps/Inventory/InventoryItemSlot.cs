@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InventoryItemSlot : MonoBehaviour
 {
     private GameObject itemGO;
-    private Item itemScript;
+    private PickableItem itemScript;
     private Image itemImage;
 
     private void Start()
@@ -18,7 +18,7 @@ public class InventoryItemSlot : MonoBehaviour
     {
         //Debug.Log(nameof(gameObject) + " -> AddItem");
         itemGO = go;
-        itemScript = itemGO.GetComponent<Item>();
+        itemScript = itemGO.GetComponent<PickableItem>();
         itemScript.SetPicked();
         itemImage.sprite = itemScript.GetImage();
         itemImage.enabled = true;
