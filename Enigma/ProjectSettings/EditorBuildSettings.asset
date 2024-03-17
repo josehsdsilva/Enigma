@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Enigma/Scenes/Ze.unity
     guid: 93d10f3b3b1fb0741affca88eab454a1
   - enabled: 1
+    path: Assets/Enigma/Scenes/Gabriel.unity
+    guid: 981824be3d14da842908059eda5be152
+  - enabled: 1
     path: Assets/Enigma/Scenes/Church.unity
     guid: a4fab18dbdd68694c97ad832f2cb49a9
   - enabled: 1
