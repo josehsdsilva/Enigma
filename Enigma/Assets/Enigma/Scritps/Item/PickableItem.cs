@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public class PickableItem : MonoBehaviour
 {
     [SerializeField] ItemType itemType;
     [SerializeField] Sprite image;
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
 
     public virtual void Use()
     {
-        Debug.Log("Item -> Use");
+        Debug.Log("PickableItem -> Use");
     }
 }
 

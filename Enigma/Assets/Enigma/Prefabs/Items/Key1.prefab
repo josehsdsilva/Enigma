@@ -75,13 +75,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93bdbbb024a5c8a48bae389757276f9f, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: faa9d9e170463c74e93975da21b1beb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 59.531254, y: 60.000004}
+  m_Size: {x: 2.15, y: 1.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,7 +124,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.15, y: 1.63}
-    newSize: {x: 59.531254, y: 60.000004}
+    newSize: {x: 2.15, y: 1.63}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -157,5 +157,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  image: {fileID: 21300000, guid: 93bdbbb024a5c8a48bae389757276f9f, type: 3}
+  image: {fileID: 21300000, guid: faa9d9e170463c74e93975da21b1beb6, type: 3}
   onKeyUse: {fileID: 11400000, guid: 3012320afba908541be99aa96f776086, type: 2}

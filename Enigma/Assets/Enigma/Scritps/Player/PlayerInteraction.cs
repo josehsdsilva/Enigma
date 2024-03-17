@@ -7,7 +7,8 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] GameEvent_GameObject onItemPicked;
     GameObject interactableObject;
-    Item itemScript;
+    PickableItem pickableItem;
+    InteractableItem interactableItem;
     bool canMove;
 
     private void Awake()
@@ -27,12 +28,16 @@ public class PlayerInteraction : MonoBehaviour
 
     public void SetCloseToObject(GameObject go)
     {
-        if (go && go.GetComponent<Item>() && go.GetComponent<Item>().AlreadyPicked()) return;
+        if (go && go.GetComponent<PickableItem>() && go.GetComponent<PickableItem>().AlreadyPicked()) return;
 
         interactableObject = go;
-        if(interactableObject)
+        if(interactableObject && interactableObject.GetComponent<PickableItem>())
         {
-            itemScript = interactableObject.GetComponent<Item>();
+            pickableItem = interactableObject.GetComponent<PickableItem>();
+        }
+        else if (interactableObject && interactableObject.GetComponent<InteractableItem>())
+        {
+            interactableItem = interactableObject.GetComponent<InteractableItem>();
         }
     }
 
@@ -40,12 +45,16 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (!canMove) return;
 
-        if (Input.GetKey(KeyCode.E) && interactableObject)
+        if (Input.GetKey(KeyCode.E) && interactableObject && (interactableItem || pickableItem) )
         {
-            if(itemScript)
+            if(pickableItem)
             {
                 onItemPicked.Event.Invoke(interactableObject);
                 SetCloseToObject(null);
+            }
+            else if(interactableItem != null)
+            {
+                interactableItem.Use();
             }
         }
     }
