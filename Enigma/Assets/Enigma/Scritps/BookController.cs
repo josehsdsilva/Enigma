@@ -11,10 +11,12 @@ public class BookController : MonoBehaviour
     [SerializeField] Button openButton;
     [SerializeField] GameObject cover;
     [SerializeField] GameObject openBook;
+    GameObject inventory;
     GameObject panel;
 
     private void Start()
     {
+        inventory = transform.parent.GetChild(0).gameObject;
         onBookOpen.Event.AddListener(ShowBook);
         closeButton.onClick.AddListener(CloseBook);
         openButton.onClick.AddListener(OpenBook);
@@ -34,6 +36,7 @@ public class BookController : MonoBehaviour
     {
         //Debug.Log("CloseBook");
         panel.SetActive(false);
+        inventory.SetActive(true);
     }
 
     private void ShowBook()
@@ -44,5 +47,6 @@ public class BookController : MonoBehaviour
         openBook.SetActive(false);
         closeButton.gameObject.SetActive(false);
         openButton.gameObject.SetActive(true);
+        inventory.SetActive(false);
     }
 }

@@ -1,36 +1,35 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClockController : MonoBehaviour
+public class AltarController : MonoBehaviour
 {
-    [SerializeField] GameEvent onClockOpen;
+    [SerializeField] GameEvent onAlterOpen;
     [SerializeField] Button closeButton;
     GameObject panel;
-    ClockPuzzleResolution clockPuzzleResolution;
+    CandlePuzleResolution candlePuzleResolution;
     GameObject inventory;
 
     private void Awake()
     {
         inventory = transform.parent.GetChild(0).gameObject;
-        clockPuzzleResolution = GetComponent<ClockPuzzleResolution>();
+        candlePuzleResolution = GetComponent<CandlePuzleResolution>();
         panel = transform.GetChild(0).gameObject;
-        onClockOpen.Event.AddListener(ShowClock);
-        closeButton.onClick.AddListener(HideClock);
+        onAlterOpen.Event.AddListener(ShowAltar);
+        closeButton.onClick.AddListener(HideAltar);
         panel.SetActive(false);
     }
 
-    private void HideClock()
+    private void HideAltar()
     {
         panel.SetActive(false);
         inventory.SetActive(true);
     }
 
-    private void ShowClock()
+    private void ShowAltar()
     {
-        if (clockPuzzleResolution.GetPuzzleSolvedCheck()) return;
+        if (candlePuzleResolution.GetPuzzleSolvedCheck()) return;
 
         panel.SetActive(true);
         inventory.SetActive(false);
