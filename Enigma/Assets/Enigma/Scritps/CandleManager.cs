@@ -17,6 +17,6 @@ public class CandleManager : MonoBehaviour
     public void UpdateCandles()
     {
         bowCandle.SetActive(SceneController.Instance.visited.Count >= 1);
-        diaryCandle.SetActive(SceneController.Instance.visited.Count >= 2);
+        diaryCandle.SetActive(SceneController.Instance.visited.Count >= 3);
     }
 }

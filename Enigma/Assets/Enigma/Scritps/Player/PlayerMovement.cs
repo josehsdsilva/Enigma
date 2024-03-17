@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    Camera cam;
     Animator animator;
     float speed = 5;
-    bool canMove;
+    bool canMove = true;
     SpriteRenderer spriteRenderer;
 
     bool moving;
 
     private void Awake()
     {
+        cam = Camera.main;
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameState newState)
     {
-        canMove = newState == GameState.Play;
+        //canMove = newState == GameState.Play;
     }
 
     void Update()
