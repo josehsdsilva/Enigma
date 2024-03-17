@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dd4bb9b675928b46b4e65f82581b057, type: 3}
-  m_Name: NpcInteraction
+  m_Name: MomNoGoRoom
   m_EditorClassIdentifier: 
   talkScript:
-  - name: StrangeGuy
-    text: You shoudn't be here, at least not for now young one, you're time hasn't
-      come yet
+  - name: Alice
+    text: 'Mom doesn''t let me go here, I don''t know why!!!
+
+      Maybe someday
+      I''ll sneak right there.'
