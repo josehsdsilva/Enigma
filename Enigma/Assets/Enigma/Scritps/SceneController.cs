@@ -65,6 +65,15 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    public void LoadNextScene()
+    {
+        // Get the index of the current active scene
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Load the next scene by incrementing the current scene index
+        SceneManager.LoadScene(currentIndex + 1);
+    }
+
     void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -72,5 +81,11 @@ public class SceneController : MonoBehaviour
         {
             visited.Add(sceneName);
         }
+    }
+
+    public void QuitGame()
+    {
+        // Quit the application
+        Application.Quit();
     }
 }
